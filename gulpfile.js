@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
     eslint = require('gulp-eslint'),
-    babel = require('gulp-babel');
+    babel = require('gulp-babel'),
+    sourcemaps = require('gulp-sourcemaps');
 
 require('babel/register');
 
@@ -22,7 +23,9 @@ gulp.task('test', ['lint'], function () {
 gulp.task('dist', ['test'], function () {
     return gulp
         .src('./src/**/*.js')
+        .pipe(sourcemaps.init())
         .pipe(babel())
+        .pipe(sourcemaps.write(''))
         .pipe(gulp.dest('./dist'));
 });
 
