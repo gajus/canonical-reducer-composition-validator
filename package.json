@@ -1,6 +1,6 @@
 {
   "name": "canonical",
-  "description": "",
+  "description": "Library to validate data compliance with the Canonical Reducer Composition design pattern.",
   "main": "src/index.js",
   "repository": {
     "type": "git",
