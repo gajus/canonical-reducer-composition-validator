@@ -27,32 +27,3 @@ validateAction(action);
  */
 validateActionName(actionName);
 ```
-
-## Importing
-
-The files in `./src/` are written using ES6 features. Therefore, you need to use a source-to-source compiler to load the module. If you are using webpack to build your project and Babel, make a separate test to compile redux-immutable source, e.g.
-
-```js
-let webpack = require('webpack');
-
-module.exports = {
-    module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                include: [
-                    /node_modules\/redux\-immutable/
-                ],
-                loader: 'babel'
-            },
-            {
-                test: /\.js$/,
-                exclude: [
-                    /node_modules/
-                ],
-                loader: 'babel'
-            }
-        ]
-    }
-};
-```

@@ -1,7 +1,7 @@
 {
   "name": "canonical",
   "description": "Library to validate data compliance with the Canonical Reducer Composition design pattern.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/gajus/canonical"
@@ -25,6 +25,7 @@
     "chai": "^3.2.0",
     "eslint": "^1.1.0",
     "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.0",
     "gulp-eslint": "^1.0.0",
     "gulp-mocha": "^2.1.3",
     "lodash": "^3.10.1"
