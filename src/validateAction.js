@@ -1,5 +1,7 @@
 import _ from 'lodash';
 
+import validateActionName from './validateActionName';
+
 export default (action) => {
     let unknownProperty;
 
@@ -11,8 +13,10 @@ export default (action) => {
         throw new Error('Action definition object must define "name" property.');
     }
 
-    if (!/^[A-Z\_]+$/.test(action.name)) {
-        throw new Error('Action definition object "name" property value must consist only of uppercase alphabetical characters and underscores.');
+    try {
+        validateActionName(action.name);
+    } catch (e) {
+        throw new Error('Action definition object "name" property value must be a valid action name.');
     }
 
     if (!_.isUndefined(action.data) && !_.isPlainObject(action.data)) {

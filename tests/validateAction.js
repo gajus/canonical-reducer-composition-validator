@@ -30,7 +30,7 @@ describe('validateAction()', () => {
 
         describeValidateActionThrow(
             '"name" property value does not consist only of uppercase alphabetical characters and underscores',
-            'Action definition object "name" property value must consist only of uppercase alphabetical characters and underscores.',
+            'Action definition object "name" property value must be a valid action name.',
             {
                 name: 'lowercase'
             }

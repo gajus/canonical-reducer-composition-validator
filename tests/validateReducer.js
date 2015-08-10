@@ -23,5 +23,28 @@ describe('validateReducer()', () => {
                 FOO: () => {}
             }
         );
+
+        describeValidateReducerThrow(
+            'defines multiple actions with the same name',
+            'Reducer definition object action handler names must be unique.',
+            {
+                foos: {
+                    FOO: () => {}
+                },
+                bars: {
+                    FOO: () => {}
+                }
+            }
+        );
+
+        describeValidateReducerThrow(
+            'defines multiple actions with the same name',
+            'Reducer definition object action handler names must be valid action names.',
+            {
+                foos: {
+                    foo: () => {}
+                }
+            }
+        );
     });
 });
