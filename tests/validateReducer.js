@@ -17,8 +17,8 @@ describe('validateReducer()', () => {
         };
 
         describeValidateReducerThrow(
-            'does not begin with a domain map',
-            'Reducer definition object must begin with a domain map definition.',
+            'does not begin with a domain',
+            'Reducer definition object must begin with a domain definition.',
             {
                 FOO: () => {}
             }

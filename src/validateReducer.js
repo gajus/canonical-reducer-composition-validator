@@ -47,14 +47,14 @@ export default (reducer) => {
             } else if (isDomainMap(value)) {
                 iterator(branch[domainName]);
             } else {
-                throw new Error('Reducer definition object value object all values must correspond to a function (action map) or an object (domain map).');
+                throw new Error('Reducer definition object value object all values must correspond to a function (action map) or an object (domain).');
             }
         });
     };
 
     // _.values(reducers).length is used to ignore empty reducer definition.
     if (isActionMap(reducer) && _.values(reducer).length) {
-        throw new Error('Reducer definition object must begin with a domain map definition.');
+        throw new Error('Reducer definition object must begin with a domain definition.');
     }
 
     iterator(reducer);
