@@ -1,4 +1,6 @@
-import _ from 'lodash';
+import first from 'lodash.first';
+import difference from 'lodash.difference';
+import keys from 'lodash.keys';
 
 import validateActionName from './validateActionName';
 
