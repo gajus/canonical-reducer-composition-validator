@@ -31,7 +31,7 @@
     "gulp-sourcemaps": "^1.5.2"
   },
   "scrips": {
-    "test": "gulp test"
+    "test": "babel-node ./node_modules/.bin/gulp test"
   },
   "dependencies": {
     "lodash": "^3.10.1"

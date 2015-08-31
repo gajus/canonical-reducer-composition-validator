@@ -27,3 +27,11 @@ validateAction(action);
  */
 validateActionName(actionName);
 ```
+
+## Using gulp
+
+`gulpfile.js` is written using ES6. Therefore, it needs to be executed using `babel-node`.
+
+```
+babel-node ./node_modules/.bin/gulp build
+```
