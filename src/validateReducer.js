@@ -1,4 +1,8 @@
-import _ from 'lodash';
+import every from 'lodash.every';
+import isPlainObject from 'lodash.isplainobject';
+import forEach from 'lodash.foreach';
+import indexOf from 'lodash.indexof';
+import values from 'lodash.values';
 
 import validateActionName from './validateActionName';
 
