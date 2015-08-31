@@ -58,7 +58,9 @@ exports['default'] = function (reducer) {
                         throw new Error('Reducer definition object action handler names must be unique.');
                     }
 
-                    actionIndex.push(name);
+                    if (name !== 'CONSTRUCT') {
+                        actionIndex.push(name);
+                    }
                 });
             } else if (isDomainMap(value)) {
                 iterator(branch[domainName]);
