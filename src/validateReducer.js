@@ -1,4 +1,8 @@
-import _ from 'lodash';
+import every from 'lodash.every';
+import isPlainObject from 'lodash.isplainobject';
+import forEach from 'lodash.foreach';
+import indexOf from 'lodash.indexof';
+import values from 'lodash.values';
 
 import validateActionName from './validateActionName';
 
@@ -10,7 +14,7 @@ let isDomainMap,
  * @return {Boolean} If every object property value is a plain object.
  */
 isDomainMap = (map) => {
-    return _.every(map, _.isPlainObject);
+    return every(map, isPlainObject);
 };
 
 /**
@@ -18,7 +22,7 @@ isDomainMap = (map) => {
  * @return {Boolean} If every object property value is a function.
  */
 isActionMap = (map) => {
-    return _.every(map, _.isFunction);
+    return every(map, isFunction);
 };
 
 export default (reducer) => {
@@ -29,16 +33,16 @@ export default (reducer) => {
      * @param {Object} branch
      */
     iterator = (branch) => {
-        _.forEach(branch, (value, domainName) => {
+        forEach(branch, (value, domainName) => {
             if (isActionMap(value)) {
-                _.forEach(value, (action, name) => {
+                forEach(value, (action, name) => {
                     try {
                         validateActionName(name);
                     } catch (e) {
                         throw new Error('Reducer definition object action handler names must be valid action names.');
                     }
 
-                    if (_.indexOf(actionIndex, name) !== -1) {
+                    if (indexOf(actionIndex, name) !== -1) {
                         throw new Error('Reducer definition object action handler names must be unique.');
                     }
 
@@ -52,8 +56,8 @@ export default (reducer) => {
         });
     };
 
-    // _.values(reducers).length is used to ignore empty reducer definition.
-    if (isActionMap(reducer) && _.values(reducer).length) {
+    // values(reducers).length is used to ignore empty reducer definition.
+    if (isActionMap(reducer) && values(reducer).length) {
         throw new Error('Reducer definition object must begin with a domain definition.');
     }
 
