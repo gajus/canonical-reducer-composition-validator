@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from './utils';
 
 import validateActionName from './validateActionName';
 
@@ -30,6 +30,6 @@ export default (action) => {
     unknownProperty = _.first(_.difference(_.keys(action), ['name', 'data', 'metadata']));
 
     if (unknownProperty) {
-        throw new Error('Action definition object must not define unknown properties.');
+        throw new Error('Action definition object must not define unknown properties. "' + unknownProperty + '" is an unknown property.');
     }
 };

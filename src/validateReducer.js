@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from './utils';
 
 import validateActionName from './validateActionName';
 
@@ -24,6 +24,10 @@ isActionMap = (map) => {
 export default (reducer) => {
     let iterator,
         actionIndex = [];
+
+    if (!isDomainMap(reducer) && _.values(reducer).length) {
+        throw new Error('Reducer definition object must begin with a domain definition.');
+    }
 
     /**
      * @param {Object} branch
@@ -51,11 +55,6 @@ export default (reducer) => {
             }
         });
     };
-
-    // _.values(reducers).length is used to ignore empty reducer definition.
-    if (isActionMap(reducer) && _.values(reducer).length) {
-        throw new Error('Reducer definition object must begin with a domain definition.');
-    }
 
     iterator(reducer);
 };

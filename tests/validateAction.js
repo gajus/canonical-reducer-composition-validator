@@ -56,7 +56,7 @@ describe('validateAction()', () => {
 
         describeValidateActionThrow(
             'defines unknown properties',
-            'Action definition object must not define unknown properties.',
+            'Action definition object must not define unknown properties. "foo" is an unknown property.',
             {
                 name: 'FOO',
                 foo: 'bar'
