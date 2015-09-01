@@ -59,5 +59,23 @@ describe('validateReducer()', () => {
                 });
             });
         });
+
+        describe('defines multiple actions with CONSTRUCT name', () => {
+            it('does not throw an error', () => {
+                validateReducer({
+                    foos: {
+                        foo1: {
+                            CONSTRUCT: () => {}
+                        },
+                        foo2: {
+                            CONSTRUCT: () => {}
+                        }
+                    },
+                    bars: {
+                        CONSTRUCT: () => {}
+                    }
+                });
+            });
+        });
     });
 });
