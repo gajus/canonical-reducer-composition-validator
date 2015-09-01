@@ -1,25 +1,8 @@
 import _ from './utils';
 
 import validateActionName from './validateActionName';
-
-let isDomainMap,
-    isActionMap;
-
-/**
- * @param {Object.<string, Object>} map
- * @return {Boolean} If every object property value is a plain object.
- */
-isDomainMap = (map) => {
-    return _.every(map, _.isPlainObject);
-};
-
-/**
- * @param {Object.<string, Function>} map
- * @return {Boolean} If every object property value is a function.
- */
-isActionMap = (map) => {
-    return _.every(map, _.isFunction);
-};
+import isDomainMap from './isDomainMap';
+import isActionMap from './isActionMap';
 
 export default (reducer) => {
     let iterator,

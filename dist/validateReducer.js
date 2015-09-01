@@ -14,30 +14,19 @@ var _validateActionName = require('./validateActionName');
 
 var _validateActionName2 = _interopRequireDefault(_validateActionName);
 
-var isDomainMap = undefined,
-    isActionMap = undefined;
+var _isDomainMap = require('./isDomainMap');
 
-/**
- * @param {Object.<string, Object>} map
- * @return {Boolean} If every object property value is a plain object.
- */
-isDomainMap = function (map) {
-    return _utils2['default'].every(map, _utils2['default'].isPlainObject);
-};
+var _isDomainMap2 = _interopRequireDefault(_isDomainMap);
 
-/**
- * @param {Object.<string, Function>} map
- * @return {Boolean} If every object property value is a function.
- */
-isActionMap = function (map) {
-    return _utils2['default'].every(map, _utils2['default'].isFunction);
-};
+var _isActionMap = require('./isActionMap');
+
+var _isActionMap2 = _interopRequireDefault(_isActionMap);
 
 exports['default'] = function (reducer) {
     var iterator = undefined,
         actionIndex = [];
 
-    if (!isDomainMap(reducer) && _utils2['default'].values(reducer).length) {
+    if (!(0, _isDomainMap2['default'])(reducer) && _utils2['default'].values(reducer).length) {
         throw new Error('Reducer definition object must begin with a domain definition.');
     }
 
@@ -46,7 +35,7 @@ exports['default'] = function (reducer) {
      */
     iterator = function (branch) {
         _utils2['default'].forEach(branch, function (value, domainName) {
-            if (isActionMap(value)) {
+            if ((0, _isActionMap2['default'])(value)) {
                 _utils2['default'].forEach(value, function (action, name) {
                     try {
                         (0, _validateActionName2['default'])(name);
@@ -62,7 +51,7 @@ exports['default'] = function (reducer) {
                         actionIndex.push(name);
                     }
                 });
-            } else if (isDomainMap(value)) {
+            } else if ((0, _isDomainMap2['default'])(value)) {
                 iterator(branch[domainName]);
             } else {
                 throw new Error('Reducer definition object value object all values must correspond to a function (action map) or an object (domain).');

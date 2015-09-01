@@ -1,4 +1,3 @@
-// https://gist.github.com/gajus/043ccd1af440161b4fba
 {
     "rules": {
         "no-console": 0,
@@ -73,5 +72,3 @@
         // "node": true
     }
 }
-
-// babel-eslint

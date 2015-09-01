@@ -14,6 +14,10 @@ var _lodashLangIsPlainObject = require('lodash/lang/isPlainObject');
 
 var _lodashLangIsPlainObject2 = _interopRequireDefault(_lodashLangIsPlainObject);
 
+var _lodashLangIsFunction = require('lodash/lang/isFunction');
+
+var _lodashLangIsFunction2 = _interopRequireDefault(_lodashLangIsFunction);
+
 var _lodashObjectKeys = require('lodash/object/keys');
 
 var _lodashObjectKeys2 = _interopRequireDefault(_lodashObjectKeys);
@@ -45,6 +49,7 @@ var _lodashCollectionForEach2 = _interopRequireDefault(_lodashCollectionForEach)
 exports['default'] = {
     isUndefined: _lodashLangIsUndefined2['default'],
     isPlainObject: _lodashLangIsPlainObject2['default'],
+    isFunction: _lodashLangIsFunction2['default'],
     keys: _lodashObjectKeys2['default'],
     values: _lodashObjectValues2['default'],
     difference: _lodashArrayDifference2['default'],
