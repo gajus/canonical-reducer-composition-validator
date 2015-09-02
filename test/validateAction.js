@@ -6,14 +6,14 @@ import validateAction from './../src/validateAction';
 import describeThrow from './describeThrow';
 
 describe('validateAction()', () => {
-    describe('when action is not an object', () => {
+    context('when action is not an object', () => {
         it('throws an error', () => {
             expect(() => {
                 validateAction(null)
             }).to.throw(Error, 'Action definition must be a plain object.');
         });
     });
-    describe('when action definition object', () => {
+    context('when action definition object', () => {
         let describeValidateActionThrow;
 
         describeValidateActionThrow = (when, message, value) => {
@@ -51,6 +51,35 @@ describe('validateAction()', () => {
             {
                 name: 'FOO',
                 metadata: 'not object'
+            }
+        );
+
+        describeValidateActionThrow(
+            '"error" property is present and it is not an object',
+            'Action definition object "error" property value must be an object.',
+            {
+                name: 'FOO',
+                error: null
+            }
+        );
+
+        describeValidateActionThrow(
+            '"error" object does not define "message" property',
+            '"error" object must have "message" property.',
+            {
+                name: 'FOO',
+                error: {}
+            }
+        );
+
+        describeValidateActionThrow(
+            '"error" object "message" property value is not a string',
+            '"error" object "message" property value must be a string.',
+            {
+                name: 'FOO',
+                error: {
+                    message: null
+                }
             }
         );
 

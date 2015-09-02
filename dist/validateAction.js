@@ -39,7 +39,21 @@ exports['default'] = function (action) {
         throw new Error('Action definition object "metadata" property value must be a plain object.');
     }
 
-    unknownProperty = _utils2['default'].first(_utils2['default'].difference(_utils2['default'].keys(action), ['name', 'data', 'metadata']));
+    if (!_utils2['default'].isUndefined(action.error)) {
+        if (!_utils2['default'].isObject(action.error)) {
+            throw new Error('Action definition object "error" property value must be an object.');
+        }
+
+        if (!_utils2['default'].has(action.error, 'message')) {
+            throw new Error('"error" object must have "message" property.');
+        }
+
+        if (!_utils2['default'].isString(action.error, 'message')) {
+            throw new Error('"error" object "message" property value must be a string.');
+        }
+    }
+
+    unknownProperty = _utils2['default'].first(_utils2['default'].difference(_utils2['default'].keys(action), ['name', 'data', 'metadata', 'error']));
 
     if (unknownProperty) {
         throw new Error('Action definition object must not define unknown properties. "' + unknownProperty + '" is an unknown property.');

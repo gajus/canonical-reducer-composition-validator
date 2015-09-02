@@ -27,7 +27,21 @@ export default (action) => {
         throw new Error('Action definition object "metadata" property value must be a plain object.');
     }
 
-    unknownProperty = _.first(_.difference(_.keys(action), ['name', 'data', 'metadata']));
+    if (!_.isUndefined(action.error)) {
+        if (!_.isObject(action.error)) {
+            throw new Error('Action definition object "error" property value must be an object.');
+        }
+
+        if (!_.has(action.error, 'message')) {
+            throw new Error('"error" object must have "message" property.');
+        }
+
+        if (!_.isString(action.error, 'message')) {
+            throw new Error('"error" object "message" property value must be a string.');
+        }
+    }
+
+    unknownProperty = _.first(_.difference(_.keys(action), ['name', 'data', 'metadata', 'error']));
 
     if (unknownProperty) {
         throw new Error('Action definition object must not define unknown properties. "' + unknownProperty + '" is an unknown property.');
