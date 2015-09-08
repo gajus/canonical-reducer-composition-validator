@@ -1,7 +1,7 @@
 # Canonical
 
-[![Travis build status](http://img.shields.io/travis/gajus/canonical/master.svg?style=flat-square)](https://travis-ci.org/gajus/canonical)
-[![NPM version](http://img.shields.io/npm/v/canonical.svg?style=flat-square)](https://www.npmjs.org/package/canonical)
+[![Travis build status](http://img.shields.io/travis/gajus/canonical-reducer-composition-validator/master.svg?style=flat-square)](https://travis-ci.org/gajus/canonical-reducer-composition-validator)
+[![NPM version](http://img.shields.io/npm/v/canonical-reducer-composition-validator.svg?style=flat-square)](https://www.npmjs.org/package/canonical-reducer-composition-validator)
 
 [Canonical Reducer Composition](https://github.com/gajus/canonical-reducer-composition) pattern component validator.
 
@@ -10,7 +10,7 @@ import {
     validateReducer,
     validateAction,
     validateActionName
-} from 'canonical';
+} from 'canonical-reducer-composition-validator';
 
 /**
  * @throws Error if input reducerDefinition is not compliant with the spec.

@@ -1,16 +1,17 @@
 {
-  "name": "canonical",
+  "name": "canonical-reducer-composition-validator",
   "description": "Library to validate data compliance with the Canonical Reducer Composition design pattern.",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gajus/canonical"
+    "url": "https://github.com/gajus/canonical-reducer-composition-validator"
   },
   "keywords": [
     "canonical",
     "reducer",
     "composition",
-    "redux"
+    "redux",
+    "validator"
   ],
   "version": "1.3.0",
   "author": {
