@@ -1,4 +1,4 @@
-# Canonical
+# Canonical Reducer Composition Validator
 
 [![Travis build status](http://img.shields.io/travis/gajus/canonical-reducer-composition-validator/master.svg?style=flat-square)](https://travis-ci.org/gajus/canonical-reducer-composition-validator)
 [![NPM version](http://img.shields.io/npm/v/canonical-reducer-composition-validator.svg?style=flat-square)](https://www.npmjs.org/package/canonical-reducer-composition-validator)
